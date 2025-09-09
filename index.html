@@ -439,21 +439,8 @@
 
                     <!-- Glass Card Container -->
                     <div class="glass-morphism w-full h-full overflow-hidden relative z-10">
-                        <!-- Date Badge -->
-                        <div class="absolute top-8 right-8 z-20 fade-in-hidden animate-fade-in-scale delay-500">
-                            <div class="glass-card rounded-2xl px-6 py-3 border border-white/30">
-                                <div class="flex items-center space-x-3 text-white/95">
-                                    ${createIcon('calendar', 'w-5 h-5 text-amber-300')}
-                                    <div>
-                                        <div class="text-sm tracking-wide">Sept 21</div>
-                                        <div class="text-xs text-amber-200 tracking-wider">2025</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Main Hero Content -->
-                        <div class="absolute top-0 left-0 right-0 h-[40vh] flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center">
                             <div class="text-center fade-in-hidden animate-fade-in-up delay-800">
                                 <!-- Title -->
                                 <h1 class="text-white text-6xl sm:text-7xl lg:text-8xl font-extralight tracking-tight mb-6 fade-in-hidden animate-letter-spacing delay-1200"
@@ -470,39 +457,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Bottom Content Section -->
-                        <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-12 bg-gradient-to-t from-black/90 via-black/60 to-transparent h-[60vh] flex flex-col overflow-y-auto">
-                            <div class="flex-grow"></div>
-                            <!-- Invitation Text -->
-                            <div class="text-center space-y-6 sm:space-y-8 mb-8 sm:mb-12 fade-in-hidden animate-fade-in-up delay-1800">
-                                <h2 class="text-white/90 text-xl sm:text-2xl font-light tracking-luxury leading-relaxed">
-                                    cordially invites you to
-                                </h2>
-                                
-                                <div class="space-y-6">
-                                    <h3 class="text-white text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-wide leading-relaxed">
-                                        An Evening of
-                                    </h3>
-                                    
-                                    <h3 class="gold-gradient-text text-5xl sm:text-6xl lg:text-7xl font-extralight tracking-wider leading-tight">
-                                        Elegance
-                                    </h3>
-                                </div>
-                                
-                                <p class="text-white/80 text-lg sm:text-xl font-light max-w-xl mx-auto leading-loose tracking-luxury">
-                                    A sophisticated celebration of refinement and grace
-                                </p>
-                            </div>
-
-                            <!-- Detail Cards -->
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 px-2 sm:px-0 fade-in-hidden animate-fade-in-up delay-2200">
-                                ${this.renderDetailCards()}
-                            </div>
-
-                            <!-- Scroll Indicator -->
-                            
-                        </div>
                     </div>
 
                     <!-- Bottom Gradient Transition -->
@@ -511,24 +465,6 @@
 
                 this.element = section;
                 return section;
-            }
-
-            renderDetailCards() {
-                const cards = [
-                    { icon: 'clock', title: '8:00 PM', subtitle: 'Saturday Evening', color: 'amber' },
-                    { icon: 'mapPin', title: 'Four Seasons', subtitle: 'Beverly Hills', color: 'emerald' },
-                    { icon: 'sparkle', title: 'Black Tie', subtitle: 'Formal Attire', color: 'rose' }
-                ];
-
-                return cards.map((card, index) => `
-                    <div class="glass-card rounded-2xl p-6 text-center border border-white/20 fade-in-hidden animate-fade-in-scale delay-${2400 + (index * 100)}">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-${card.color}-400/20 to-${card.color}-600/20 border border-${card.color}-400/30 flex items-center justify-center mx-auto mb-4 transition-transform duration-300 hover:scale-110">
-                            ${createIcon(card.icon, `w-6 h-6 text-${card.color}-300`)}
-                        </div>
-                        <p class="text-white font-medium text-lg mb-2 tracking-wide">${card.title}</p>
-                        <p class="text-white/70 text-sm tracking-luxury">${card.subtitle}</p>
-                    </div>
-                `).join('');
             }
 
             mount() {
