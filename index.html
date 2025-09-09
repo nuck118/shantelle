@@ -285,6 +285,11 @@
             opacity: 0;
         }
 
+        /* Initially hidden elements for invitation animations */
+        .invitation-fade-in, .invitation-slide-line {
+            opacity: 0;
+        }
+
         /* Ambient background animation */
         .ambient-bg {
             position: absolute;
@@ -623,17 +628,13 @@
 
                 // Trigger entrance animations for invitation
                 const fadeElements = this.element.querySelectorAll('.invitation-fade-in');
-                fadeElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.style.animation = 'fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards';
-                    }, index * 100);
+                fadeElements.forEach(el => {
+                    el.classList.add('animate-fade-in-up');
                 });
 
                 const slideElements = this.element.querySelectorAll('.invitation-slide-line');
-                slideElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.style.animation = 'slideInLine 1.5s ease-out forwards';
-                    }, index * 200);
+                slideElements.forEach(el => {
+                    el.classList.add('animate-slide-in-line');
                 });
             }
         }
