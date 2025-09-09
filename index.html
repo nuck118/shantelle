@@ -421,7 +421,7 @@
             }
 
             render() {
-                const section = createElement('section', 'fixed inset-0 z-10 luxury-bg overflow-hidden');
+                const section = createElement('section', 'fixed inset-0 z-10 luxury-bg overflow-hidden transition-opacity duration-700 ease-in-out');
                 section.id = 'hero-section';
 
                 section.innerHTML = `
@@ -552,12 +552,14 @@
             constructor() {
                 this.element = null;
                 this.sparkleEffect = null;
+                this.animationsStarted = false;
             }
 
             render() {
-                const section = createElement('section', 'fixed inset-0 z-20 bg-gradient-to-b from-black via-zinc-900 to-black min-h-screen');
+                const section = createElement('section', 'fixed inset-0 z-20 bg-gradient-to-b from-black via-zinc-900 to-black min-h-screen transition-opacity duration-700 ease-in-out');
                 section.id = 'invitation-section';
-                section.style.display = 'none';
+                section.style.opacity = '0';
+                section.style.pointerEvents = 'none';
 
                 section.innerHTML = `
                     <!-- Ambient Background -->
@@ -747,6 +749,9 @@
             }
 
             startAnimations() {
+                if (this.animationsStarted) return;
+                this.animationsStarted = true;
+
                 // Trigger entrance animations for invitation
                 const fadeElements = this.element.querySelectorAll('.invitation-fade-in');
                 fadeElements.forEach((el, index) => {
@@ -827,22 +832,34 @@
             showHero() {
                 const heroEl = document.getElementById('hero-section');
                 const invitationEl = document.getElementById('invitation-section');
-                
-                if (heroEl) heroEl.style.display = 'block';
-                if (invitationEl) invitationEl.style.display = 'none';
-                
+
+                if (heroEl) {
+                    heroEl.style.opacity = '1';
+                    heroEl.style.pointerEvents = 'auto';
+                }
+                if (invitationEl) {
+                    invitationEl.style.opacity = '0';
+                    invitationEl.style.pointerEvents = 'none';
+                }
+
                 this.currentSection = 'hero';
             }
 
             showInvitation() {
                 const heroEl = document.getElementById('hero-section');
                 const invitationEl = document.getElementById('invitation-section');
-                
-                if (heroEl) heroEl.style.display = 'none';
-                if (invitationEl) invitationEl.style.display = 'block';
-                
+
+                if (heroEl) {
+                    heroEl.style.opacity = '0';
+                    heroEl.style.pointerEvents = 'none';
+                }
+                if (invitationEl) {
+                    invitationEl.style.opacity = '1';
+                    invitationEl.style.pointerEvents = 'auto';
+                }
+
                 this.currentSection = 'invitation';
-                
+
                 // Trigger invitation animations
                 if (this.invitationSection) {
                     this.invitationSection.startAnimations();
