@@ -421,7 +421,7 @@
             }
 
             render() {
-                const section = createElement('section', 'fixed inset-0 z-20 bg-gradient-to-b from-black via-zinc-900 to-black min-h-screen overflow-y-auto');
+                const section = createElement('section', 'fixed inset-0 z-20 bg-gradient-to-b from-black via-zinc-900 to-black min-h-screen overflow-y-auto opacity-0 transition-opacity duration-1000 ease-in');
                 section.id = 'invitation-section';
 
                 section.innerHTML = `
@@ -608,7 +608,13 @@
 
             mount() {
                 this.sparkleEffect = new SparkleEffect('sparkles-invitation');
-                this.startAnimations();
+
+                // Use a small timeout to ensure the element is rendered before starting the fade-in transition.
+                setTimeout(() => {
+                    this.element.classList.remove('opacity-0');
+                    // Start inner animations after the main fade-in begins
+                    this.startAnimations();
+                }, 100);
             }
 
             startAnimations() {
