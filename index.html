@@ -556,7 +556,7 @@
             }
 
             render() {
-                const section = createElement('section', 'fixed inset-0 z-20 bg-gradient-to-b from-black via-zinc-900 to-black min-h-screen transition-opacity duration-700 ease-in-out');
+                const section = createElement('section', 'fixed inset-0 z-20 bg-gradient-to-b from-black via-zinc-900 to-black min-h-screen transition-opacity duration-700 ease-in-out overflow-y-auto');
                 section.id = 'invitation-section';
                 section.style.opacity = '0';
                 section.style.pointerEvents = 'none';
@@ -568,9 +568,9 @@
                     <!-- Sparkles Container -->
                     <div id="sparkles-invitation" class="absolute inset-0 pointer-events-none opacity-60 z-5"></div>
 
-                    <div class="relative z-10 w-full h-full">
+                    <div class="relative z-10 w-full">
                         <!-- Main Glass Card -->
-                        <div class="glass-morphism w-full h-full overflow-hidden">
+                        <div class="w-full">
                             <!-- Header with Image -->
                             <div class="relative h-screen overflow-hidden">
                                 <img src="https://restauracjameluzyna.pl/wp-content/uploads/2024/11/M.F.-0021.jpg"
@@ -608,7 +608,7 @@
                             </div>
 
                             <!-- Content Section -->
-                            <div class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 lg:p-16 bg-gradient-to-t from-black/90 via-black/70 to-transparent min-h-[50vh]">
+                            <div class="relative bg-black/95 p-8 sm:p-12 lg:p-16">
                                 ${this.renderMainContent()}
                             </div>
                         </div>
@@ -718,7 +718,7 @@
                                 </div>
                                 
                                 <p class="text-white/80 text-lg tracking-wide">
-                                    Please confirm your attendance by September 18th
+                                    Please confirm your attendance by October 20th
                                 </p>
                                 
                                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-12">
@@ -727,7 +727,7 @@
                                         <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 border border-blue-400/30 flex items-center justify-center group-hover:border-blue-300/50 transition-colors duration-300">
                                             ${createIcon('mail', 'w-5 h-5 text-blue-300')}
                                         </div>
-                                        <span class="text-white/90 text-lg group-hover:text-blue-200 transition-colors duration-300">shantel@events.com</span>
+                                        <span class="text-white/90 text-lg group-hover:text-blue-200 transition-colors duration-300">rsvp@goldenkalala.com</span>
                                     </div>
                                     
                                     <!-- Phone -->
